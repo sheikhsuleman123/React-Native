@@ -5,6 +5,9 @@ var {height, width} = Dimensions.get('window')
 
  class Splash extends Component {
 
+  static navigationOptions = {
+    header: null,
+  }
   state = {
     logoOpacity: new Animated.Value(0),
     titleMarginTop: new Animated.Value(height / 2)
@@ -21,7 +24,7 @@ var {height, width} = Dimensions.get('window')
         duration: 1000
       })
     ]).start(()=> {
-
+        this.props.navigation.navigate("Login")
     })
   }
   

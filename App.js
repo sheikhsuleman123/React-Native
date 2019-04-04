@@ -3,13 +3,13 @@ import {StyleSheet, Text, View} from 'react-native';
 
 import Login from './Components/Login';
 import Splash from './Components/Splash';
-
+import AppStackNavigator from './Components/AppStackNavigator';
  class App extends Component{
   
   render() {
     return (
     
-        <Splash />
+        <AppStackNavigator />
     );
   }
 }
