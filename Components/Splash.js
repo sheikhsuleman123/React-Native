@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {View ,Image,Text, Animated, Dimensions,StyleSheet } from 'react-native';
+import {View ,Image,Text,ImageBackground, Animated, Dimensions,StyleSheet } from 'react-native';
+
+import BACK from './images/newpurple.jpg';
 
 var {height, width} = Dimensions.get('window')
 
@@ -30,19 +32,22 @@ var {height, width} = Dimensions.get('window')
   
   render() {
     return (
+
+ <ImageBackground source={BACK} style={{width:'100%',height:'100%'}}>
       <View style={styles.container}>
 
         <Animated.Image
         style={{...styles.logo, opacity: this.state.logoOpacity }}
-          source={require('./images/logo.jpg')}
+        source={require('./images/logo.jpg')}
         >
       </Animated.Image>
 
         <Animated.Text style={{...styles.title,
         marginTop:this.state.titleMarginTop }}>
-        Hitract </Animated.Text>
+        Tour Guide Application </Animated.Text>
       
       </View>
+        </ImageBackground>
     )
   }
 };
@@ -56,7 +61,8 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#191970'
+        // backgroundColor: 'purple',
+        // backgroundImage: linear-gradient(red, yellow)
     },
     logo : {
         width:130,

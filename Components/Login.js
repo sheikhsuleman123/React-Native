@@ -1,64 +1,66 @@
 import React, { Component } from 'react'
-import {StyleSheet,TextInput,TouchableOpacity,TouchableWithoutFeedback, Text, View} from 'react-native';
+import {StyleSheet,TextInput,TouchableOpacity,ScrollView, Text, View,ImageBackground} from 'react-native';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
+import ImageOne from './images/newpurple.jpg';
+
+import Icon from 'react-native-vector-icons/FontAwesome';
 
  class Login extends Component {
  
   render() {
     return (
       <View style={styles.container}>
-        
-        <View style={styles.up}> 
-           <Ionicons 
-           name="ios-speedometer" 
-           size={100}
-           color={'orange'}
-           >
-           </Ionicons>
-           
-            <Text style={styles.title}>
-            Sharing your images for everyone
-            </Text>
-        </View>
-      
-        <View style={styles.down}>
-            
-            <View style={styles.textInputContainer}>
-            
-                <TextInput
+        <ScrollView>
+        <ImageBackground source={ImageOne} style={styles.imageContainer}>
+          
+          <View style={styles.up}>
+           {/* <Ionicons  name="ios-speedometer" size={100} color={'orange'} > </Ionicons> */}
+           <Text style={styles.title}> Login </Text>
+           </View>
+          
+           <View style={styles.down}>
+           <View style={{flexDirection:'row'}}>
+           <Icon style={{marginTop:22,marginRight:10}} name="user" size={22} color={'#fff'} > </Icon>
+          
+           <TextInput
                 style={styles.textInput}
-                placeholder="Enter your email address"
+                placeholder="Enter your Email "
+                placeholderTextColor="#fff"
                 textContentType="emailAddress"
                 keyboardType="email-address"
-                > 
-                </TextInput>
-                
-                <TextInput
+                >
+                </TextInput>   
+                </View>
+              
+              <View style={{flexDirection:'row'}}>
+              <Icon style={{marginTop:22,marginRight:10}} name="lock" size={22} color="#fff"></Icon> 
+               <TextInput
                 style={styles.textInput}
                 placeholder="Enter your password"
+                placeholderTextColor="#fff"
                 textContentType="password"
-                keyboardType="phone-pad"
                 secureTextEntry={true}
-              > 
-                </TextInput>
-            </View>     
+                ></TextInput>
+                </View>
+                
             <TouchableOpacity style={styles.loginButton}>
                 <Text style={styles.loginTitle}> Login</Text>
             </TouchableOpacity>
 
-            <FontAwesome.Button
-            style={styles.facebookbtn}
-            // name="facbook"
-            backgroundColor="#3b5998"
-            >
-              <Text style={styles.loginTitle}>Log in with Facebook </Text>
-              </FontAwesome.Button>
-
+            <TouchableOpacity
+            style={styles.googlebtn}>
+              <Text style={styles.googleTitle}> Sign up </Text>
+              </TouchableOpacity>
+  <Text style={styles.goSignup}> I will do it later.</Text>
+         </View>
+        </ImageBackground> 
+        </ScrollView> 
         </View>
-      </View>
-    )
+
+      
+        );
   }
 }
 
@@ -66,55 +68,77 @@ const styles = StyleSheet.create({
     
     container: {
       flex: 1,
-      backgroundColor: '#191970'
+      height:'100%',
+      width:'100%',
+    },
+    imageContainer: {
+      height:700,
+      width:'100%',
     },
     up: {
-        // flex: 3,
-        marginTop: '10%',
+        marginTop: "10%",
         alignItems: 'center',
     },
-    down: {
-        // flex: 5,
-        // justifyContent: 'center',
-        marginTop: '10%',
-        alignItems: 'center',
+    down:{
+      marginTop: "35%",
+      alignItems: 'center',
     },
+
     title: {
-        color: '#FFD700',
+        color: '#fff',
         textAlign: 'center',
-        width:400,
-        fontSize: 22,
+        fontSize: 30,
     },
       textInput: {
-        width: 300,
-        padding: 10,
-        marginBottom: 20,
-        borderRadius: 6,
-        backgroundColor: 'rgba(255,255,255,00.5)',
+        width:'82%',
+        color:"#fff",
+        height: 42,
+        fontSize:20,
+        padding: 5,
+        paddingLeft:15,
+        marginTop:'3%',
+        borderWidth:2,
+        borderColor:"#fff",
+        borderRadius: 35,
+        backgroundColor: null,
     },
     loginButton: {
-        width: 300,
-        height: 35,
-        borderRadius: 5,
-        justifyContent: 'center',
-        marginBottom: 15,
-        alignItems: 'center',
-        backgroundColor: 'rgb(221, 97, 97)'
-    },
-    loginTitle: {
-        fontSize: 15,
-        color: 'white',
-    },
-    facebookbtn : {
-      width: 300,
-      height: 35,
-      borderRadius: 5,
+      width: "80%",
+      height: '18%',
+      borderRadius: 25,
+      paddingBottom:15,
       justifyContent: 'center',
       alignItems: 'center',
+      marginVertical:'5%',
+      backgroundColor: 'purple'
+    },
+    loginTitle: {
+        fontSize: 20,
+        textAlign:'center',
+        color: 'white',
     
+    },
+    googlebtn : {
+      width: "80%",
+      height: '18%',
+      padding:10,
+      borderRadius: 25,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#fff'
+    },
+    googleTitle:{
+      fontSize:20,
+      textAlign:'center',
+      color:'red'
+    },
+    goSignup:{
+      color:'#fff',
+      fontSize:17,
+      marginTop:'2%',
+      textAlign:'center'
     }
-
-   
+    
   });
   
 
