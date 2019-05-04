@@ -76,11 +76,11 @@ const styles = StyleSheet.create({
       width:'100%',
     },
     up: {
-        marginTop: "10%",
+        marginTop: "20%",
         alignItems: 'center',
     },
     down:{
-      marginTop: "35%",
+      marginTop: "20%",
       alignItems: 'center',
     },
 
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
       textInput: {
         width:'82%',
         color:"#fff",
-        height: 42,
+        // height: 42,
         fontSize:20,
         padding: 5,
         paddingLeft:15,
@@ -103,8 +103,8 @@ const styles = StyleSheet.create({
         backgroundColor: null,
     },
     loginButton: {
-      width: "80%",
-      height: '18%',
+      width: "70%",
+      height: '16%',
       borderRadius: 25,
       paddingBottom:15,
       justifyContent: 'center',
@@ -119,8 +119,8 @@ const styles = StyleSheet.create({
     
     },
     googlebtn : {
-      width: "80%",
-      height: '18%',
+      width: "70%",
+      height: '16%',
       padding:10,
       borderRadius: 25,
       justifyContent: 'center',

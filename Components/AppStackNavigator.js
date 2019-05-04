@@ -8,10 +8,10 @@ const AppNavigator = createStackNavigator({
         screen : Splash 
     },
 
-    // Login : {
-    //     screen: Login,
+    Login : {
+        screen: Login,
     
-    // },
+    },
 }, {
     initialRouteName: 'Splash'    
 })
