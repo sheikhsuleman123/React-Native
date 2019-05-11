@@ -1,8 +1,25 @@
 import React, { Component } from 'react'
-import {View, Text,TextInput,StyleSheet,ScrollView} from 'react-native'
+import {Alert,View, Text,TextInput,StyleSheet,ScrollView,Image, Button} from 'react-native'
+
+import ImagePicker from 'react-native-image-picker';
 
  class New extends Component {
 
+    state = {
+        avatar:null
+    }
+
+    addImage = () => {
+
+        ImagePicker.showImagePicker(null,response => {
+                this.setState({
+                    avatar:response.uri
+                })
+        })
+    }
+    addMap = () => {
+        Alert.alert("add map")
+    }
   render() {
     return (
       <View style={styles.main}>
@@ -16,7 +33,28 @@ import {View, Text,TextInput,StyleSheet,ScrollView} from 'react-native'
             placeholderTextColor="black"
             >
             </TextInput>
-            <TextInput
+            
+            <Image
+            source={{uri:this.state.avatar}}
+            style={styles.avatar}
+            >
+            </Image>
+            <Button 
+             title="Add place Image"
+             color="#841584"
+            onPress={() => this.addImage()}
+             />
+
+        <View
+            style={styles.avatar}
+            >
+            </View>
+            <Button 
+             title="Add place Location"
+             color="#841584"
+            onPress={() => this.addMap()}
+             />
+        <TextInput
             style={styles.TextInputStyleClass}
             underlineColorAndroid="transparent"
             placeholder="Type Discription about place"
@@ -24,9 +62,7 @@ import {View, Text,TextInput,StyleSheet,ScrollView} from 'react-native'
             numberOfLines={5}
             multiline={true}
             />
-          </View>
-
-
+            </View>
             </ScrollView>
       </View>
     )
@@ -50,7 +86,6 @@ const styles = StyleSheet.create({
    TextInputStyleClass:{
     width:'90%',
     fontSize:18,
-    textAlign: 'center',
     marginVertical:20,
     borderWidth: 1,
     height:100
@@ -59,6 +94,14 @@ const styles = StyleSheet.create({
         fontSize:25,
         fontWeight:'bold',
         marginVertical:'10%'
+    },
+    avatar:{
+        width:'90%',
+        backgroundColor:'#dcdcdc',
+        marginVertical:20,
+        height:200,
+        borderWidth:2,
+        borderColor:'gray'
     }
 
 })
