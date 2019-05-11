@@ -38,7 +38,7 @@ var {height, width} = Dimensions.get('window')
 
         <Animated.Image
         style={{...styles.logo, opacity: this.state.logoOpacity }}
-        source={require('./images/logo.jpg')}
+        source={require('./images/logo.png')}
         >
       </Animated.Image>
 
@@ -55,14 +55,11 @@ var {height, width} = Dimensions.get('window')
 export default Splash;
 
 const styles = StyleSheet.create({
-
     container: {
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        // backgroundColor: 'purple',
-        // backgroundImage: linear-gradient(red, yellow)
     },
     logo : {
         width:130,

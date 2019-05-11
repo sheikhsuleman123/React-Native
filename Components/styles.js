@@ -25,20 +25,24 @@ export const styles={
         color:'orange'
     },
     loginField: {
+      width:'80%',
       padding: 5,
-      alignItems:'center'
+      alignItems:'center',
     },
     instructions: {
       textAlign: 'center',
     },
     loginButton: {
+      width:'80%',
+      alignSelf:'center',
       borderWidth: 1,
+      marginLeft:20,
       backgroundColor: 'purple',
       borderColor: 'purple',
       marginVertical: 20,
       color: '#fff',
       padding: 10,
-      borderRadius: 5,
+      borderRadius: 25,
     },
     loginTitle: {
       color: '#fff',
@@ -88,7 +92,19 @@ export const styles={
       borderColor:'#000000',
       borderRadius:72,
 
-    },
+    },textInput: {
+      width:'82%',
+      color:"#fff",
+      // height: 42,
+      fontSize:20,
+      padding: 5,
+      paddingLeft:15,
+      marginTop:'3%',
+      borderWidth:2,
+      borderColor:"#fff",
+      borderRadius: 35,
+      backgroundColor: null,
+  },
     
 }
 
