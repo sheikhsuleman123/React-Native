@@ -92,10 +92,10 @@ export const styles={
       borderColor:'#000000',
       borderRadius:72,
 
-    },textInput: {
+    },
+    textInput: {
       width:'82%',
       color:"#fff",
-      // height: 42,
       fontSize:20,
       padding: 5,
       paddingLeft:15,
