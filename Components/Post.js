@@ -1,21 +1,46 @@
 import React, { Component } from 'react'
-import {Alert,View, Text,TextInput,StyleSheet,ScrollView,Image, Button} from 'react-native'
+import {Alert,Picker,View, Text,TextInput,StyleSheet,ScrollView,Image, Button,TouchableOpacity} from 'react-native'
 
 import ImagePicker from 'react-native-image-picker';
 
  class New extends Component {
 
     state = {
-        avatar:null
+        placeName:'',
+        city:'',
+        avatar:null,
+        mapLocation:''
     }
 
     addImage = () => {
-
-        ImagePicker.showImagePicker(null,response => {
-                this.setState({
-                    avatar:response.uri
-                })
-        })
+        const options = {
+            title: 'Select Avatar',
+            customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+            storageOptions: {
+              skipBackup: true,
+              path: 'images',
+            },
+          };
+        ImagePicker.showImagePicker(options, (response) => {
+            console.log('Response = ', response);
+          
+            if (response.didCancel) {
+              console.log('User cancelled image picker');
+            } else if (response.error) {
+              console.log('ImagePicker Error: ', response.error);
+            } else if (response.customButton) {
+              console.log('User tapped custom button: ', response.customButton);
+            } else {
+              const source = { uri: response.uri };
+          
+              // You can also display the image using data:
+              // const source = { uri: 'data:image/jpeg;base64,' + response.data };
+          
+              this.setState({
+                avatar: source,
+              });
+            }
+          });
     }
     addMap = () => {
         Alert.alert("add map")
@@ -33,7 +58,35 @@ import ImagePicker from 'react-native-image-picker';
             placeholderTextColor="black"
             >
             </TextInput>
-            
+            <View style={{height:50,width:'90%',borderWidth:1,marginTop:15,
+            borderColor:'gray'}}>
+            <TouchableOpacity>
+        <Picker
+          placeholder="Select the City"
+          selectedValue={this.state.city}
+          onValueChange={(itemValue) => this.setState({city: itemValue}) }
+          itemStyle={{
+             backgroundColor: "yellow",
+             color: "red",
+             }}
+             itemTextStyle={{
+               fontSize:18,
+               color:'green'
+             }}
+             textStyle={{
+               color:'blue'
+             }}>
+          <Picker.Item  label="Faisalabad" value="Faisalabad" />
+          <Picker.Item  label="Lahore" value="Lahore" />
+          <Picker.Item label="Islamabad" value="Islamabad" />
+          <Picker.Item label="Rawalpindi" value="Rawalpindi" />
+          <Picker.Item label="Muree" value="Muree" />
+          <Picker.Item label="Sargodha" value="Sargodha" />
+          <Picker.Item label="Naran" value="Naran" />
+          <Picker.Item label="Kaghan" value="Kaghan" />
+      </Picker>
+      </TouchableOpacity>
+      </View>
             <Image
             source={{uri:this.state.avatar}}
             style={styles.avatar}
